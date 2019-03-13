@@ -1,0 +1,9 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ros1_ign_bridge
+Upstream-Contact: gazebo-list@gazebosim.org
+Source: https://github.com/osrf/ros1_ign_bridge/
+
+Files: *
+Copyright: 2019 Open Source Robotics Foundation
+License: Apache
+ See '/usr/share/common-licenses/Apache-2.0'.
