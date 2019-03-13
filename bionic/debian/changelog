@@ -1,6 +1,6 @@
-ignition-acropolis (1.0.0-1~bionic) bionic; urgency=medium
+ros1-ign-bridge (0.1.0~pre1-1~bionic) bionic; urgency=medium
 
-  * ignition-acropolis 1.0.0-1 release
+  * ros1-ign-bridge 1.0.0-1 release
 
  -- Nate Koenig <nate@osrfoundation.org>  Wed, 31 Jan 2019 12:26:34 -0800
 
