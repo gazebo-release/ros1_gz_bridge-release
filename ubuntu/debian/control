@@ -4,10 +4,11 @@ Maintainer: Jose Luis Rivero <jrivero@osrfoundation.org>
 Section: science
 Priority: optional
 Build-Depends: debhelper (>= 11),
+               ros-melodic-catkin,
+               ros-melodic-message-generation,
                ros-melodic-roscpp,
                ros-melodic-std-msgs,
                ros-melodic-std-srvs,
-               ros-melodic-message-generation,
   	       libignition-common3-dev,
 	       libignition-transport6-dev
 Vcs-Browser: https://github.com/osrf/ros1_ign_bridge/
@@ -16,14 +17,28 @@ Homepage: http://ignitionrobotics.org/
 
 Package: ros1-ign-bridge
 Architecture: any
-Depends: ros-melodic-roscpp,
+Depends: ros-melodic-message-runtime,
+         ros-melodic-roscpp,
          ros-melodic-std-msgs,
          ros-melodic-std-srvs,
-         ros-melodic-message-runtime,
          libignition-common3-dev,
          libignition-transport6-dev,
          ${misc:Depends}
 Multi-Arch: foreign
 Description: Bridge between Ignition messages and ROS1 messages
-  This package provides a network bridge which enables the exchange of messages
-  between ROS 1 and Ignition Transport.
+ This package provides a network bridge which enables the exchange of messages
+ between ROS 1 and Ignition Transport.
+ .
+ App
+
+Package: ros1-ign-bridge-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends:
+    drcsim7 (= ${binary:Version}), ${misc:Depends}
+Description: debugging symbols for ros1-ign-bridge
+ This package provides a network bridge which enables the exchange of messages
+ between ROS 1 and Ignition Transport.
+ .
+ Debug symbols

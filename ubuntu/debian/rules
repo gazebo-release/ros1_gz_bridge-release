@@ -1,5 +1,38 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
+export DH_VERBOSE=1
+export DH_OPTIONS=-v
+
 %:
-	dh $@ --parallel --buildsystem=cmake
+	dh  $@
+
+override_dh_auto_configure:
+	# Pull in ROS
+	. "/opt/ros/melodic/setup.sh" && \
+	dh_auto_configure -- \
+		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
+                -DCATKIN_BUILD_BINARY_PACKAGE="1" \
+                -DCMAKE_INSTALL_PREFIX="/opt/ros/melodic" \
+                -DCMAKE_PREFIX_PATH="/opt/ros/melodic"
+
+override_dh_auto_build:
+	. "/opt/ros/melodic/setup.sh" && \
+	rosdep update && \
+	dh_auto_build -- VERBOSE=1
+
+override_dh_shlibdeps:
+	. "/opt/ros/melodic/setup.sh" && \
+	dh_shlibdeps
+
+override_dh_auto_install:
+	. "/opt/ros/melodic/setup.sh" && \
+	dh_auto_install --destdir=debian/ros1-ign-bridge
+
+override_dh_auto_test:
+	echo -- Skipping tests
+	#dh_auto_test
+	true
+
+override_dh_strip:
+	dh_strip --dbg-package=ros1-ign-bridge-dbg
