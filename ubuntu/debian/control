@@ -13,8 +13,8 @@ Build-Depends: debhelper (>= 11),
                ros-melodic-sensor-msgs,
                ros-melodic-std-msgs,
                ros-melodic-std-srvs,
-               libignition-msgs3-dev (>= 3.1.0),
-	       libignition-transport6-dev
+               libignition-msgs4-dev (>= 3.1.0),
+	       libignition-transport7-dev
 Vcs-Browser: https://github.com/osrf/ros1_ign_bridge/
 Vcs-Hg: https://github.com/osrf/ros1_ign_bridge/
 Homepage: http://ignitionrobotics.org/
@@ -29,8 +29,8 @@ Depends: ros-melodic-geometry-msgs,
          ros-melodic-sensor-msgs,
          ros-melodic-std-msgs,
          ros-melodic-std-srvs,
-         libignition-msgs3-dev (>= 3.1.0),
-         libignition-transport6-dev,
+         libignition-msgs4-dev (>= 3.1.0),
+         libignition-transport7-dev,
          ${misc:Depends}
 Multi-Arch: foreign
 Description: Bridge between Ignition messages and ROS1 messages
