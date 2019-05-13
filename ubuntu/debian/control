@@ -6,6 +6,7 @@ Priority: optional
 Build-Depends: debhelper (>= 11),
                ros-melodic-catkin,
                ros-melodic-geometry-msgs,
+               ros-melodic-mav-msgs,
                ros-melodic-message-generation,
                ros-melodic-roscpp,
                ros-melodic-rosgraph-msgs,
@@ -23,6 +24,7 @@ Package: ros1-ign-bridge
 Architecture: any
 Depends: ros-melodic-geometry-msgs,
          ros-melodic-message-runtime,
+         ros-melodic-mav-msgs,
          ros-melodic-roscpp,
          ros-melodic-rosgraph-msgs,
          ros-melodic-rostest,
