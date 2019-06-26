@@ -46,7 +46,7 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends:
-    drcsim7 (= ${binary:Version}), ${misc:Depends}
+    ros1-ign-bridge (= ${binary:Version}), ${misc:Depends}
 Description: debugging symbols for ros1-ign-bridge
  This package provides a network bridge which enables the exchange of messages
  between ROS 1 and Ignition Transport.
