@@ -19,7 +19,8 @@ override_dh_auto_configure:
 	. "/opt/ros/melodic/setup.sh" && \
 	mkdir -p $(CATKIN_WS)/src && \
 	cd $(CATKIN_WS)/src && \
-	ln -s $(CURDIR) .
+	cp -a $(CURDIR) . && \
+	rm -fr $(CURDIR)/debian
 
 override_dh_auto_build:
 	# Pull in ROS
