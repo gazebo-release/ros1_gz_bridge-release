@@ -19,13 +19,14 @@ override_dh_auto_configure:
 	. "/opt/ros/melodic/setup.sh" && \
 	mkdir -p $(CATKIN_WS)/src && \
 	cd $(CATKIN_WS)/src && \
-	ln -s $(CURDIR) bridge
+	ln -s $(CURDIR) .
 
 override_dh_auto_build:
 	# Pull in ROS
 	. "/opt/ros/melodic/setup.sh" && \
 	rosdep update && \
 	cd $(CATKIN_WS) && \
+	ls -R && \
 	catkin_make --cmake-args \
 		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
                 -DCATKIN_BUILD_BINARY_PACKAGE="1" \
