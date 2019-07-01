@@ -7,19 +7,30 @@ export DH_OPTIONS=-v
 %:
 	dh  $@
 
+CATKIN_WS := $(CURDIR)/debian/catkin/bridge_ws/
+
+
+override_dh_auto_clean:
+	$(RM) -fr $(CATKIN_WS)
+
 override_dh_auto_configure:
 	# Pull in ROS
+	$(RM) -fr $(CATKIN_WS) && \
 	. "/opt/ros/melodic/setup.sh" && \
-	dh_auto_configure -- \
+	mkdir -p $(CATKIN_WS)/src && \
+	cd $(CATKIN_WS)/src && \
+	ln -s $(CURDIR) bridge
+
+override_dh_auto_build:
+	# Pull in ROS
+	. "/opt/ros/melodic/setup.sh" && \
+	rosdep update && \
+	cd $(CATKIN_WS) && \
+	catkin_make --cmake-args \
 		-DCMAKE_BUILD_TYPE=RelWithDebInfo \
                 -DCATKIN_BUILD_BINARY_PACKAGE="1" \
                 -DCMAKE_INSTALL_PREFIX="/opt/ros/melodic" \
                 -DCMAKE_PREFIX_PATH="/opt/ros/melodic"
-
-override_dh_auto_build:
-	. "/opt/ros/melodic/setup.sh" && \
-	rosdep update && \
-	dh_auto_build -- VERBOSE=1
 
 override_dh_shlibdeps:
 	. "/opt/ros/melodic/setup.sh" && \
@@ -27,7 +38,8 @@ override_dh_shlibdeps:
 
 override_dh_auto_install:
 	. "/opt/ros/melodic/setup.sh" && \
-	dh_auto_install --destdir=debian/ros1-ign-bridge
+	cd $(CATKIN_WS) && \
+	DESTDIR=/opt/ros/melodic catkin_make install
 
 override_dh_auto_test:
 	echo -- Skipping tests

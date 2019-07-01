@@ -1,3 +1,9 @@
+ros1-ign-bridge (0.3.0-2~bionic) bionic; urgency=medium
+
+  * ros1-ign-bridge 0.3.0-2 release
+
+ -- Jose Luis Rivero <jrivero@osrfoundation.org>  Mon, 01 Jul 2019 19:33:07 +0200
+
 ros1-ign-bridge (0.3.0-1~bionic) bionic; urgency=medium
 
   * ros1-ign-bridge 0.3.0-1 release
